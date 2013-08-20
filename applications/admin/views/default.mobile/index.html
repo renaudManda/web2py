@@ -3,7 +3,7 @@
 <h2>web2py&trade; {{=T('Web Framework')}}</h2>
 <h3>{{=T('Login to the Administrative Interface')}}</h3>
 
-{{if request.is_https or request.is_local:}}
+{{if request.env.http_x_forwarded_for or request.is_https or request.is_local:}}
 <div class="form">
   <form action="{{=URL(r=request)}}" method="post">
     <div><input type="hidden" name="send" value="{{=send}}"/></div>
